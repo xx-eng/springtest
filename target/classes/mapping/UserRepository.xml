@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.syzc.repository.UserRepository">
+    <select id="findAll" resultType="User">
+        select * from user
+    </select>
+    <select id="findById" parameterType="java.lang.Long" resultType="User">
+        select * from user where id = #{id}
+    </select>
+    <insert id="save" parameterType="User">
+        insert into user(uname, upwd, uemail, utele) values(#{uname}, #{upwd}, #{uemail}, #{utele})
+    </insert>
+    <update id="update" parameterType="User">
+        update user set uname=#{uname}, upwd=#{upwd}, uemail=#{uemail}, utele=#{utele} where id=#{id}
+    </update>
+    <delete id="deleteById" parameterType="java.lang.Long">
+        delete from user where id=#{id}
+    </delete>
+</mapper>
